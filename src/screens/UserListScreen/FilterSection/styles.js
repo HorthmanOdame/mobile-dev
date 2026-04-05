@@ -1,11 +1,29 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  container: {
+  mainContainer: {
     marginTop: 8,
     marginHorizontal: 16,
-    position: 'relative',
     zIndex: 1000,
+  },
+  searchFilterRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  searchInput: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+    fontSize: 16,
+    color: '#333',
+  },
+  filterContainer: {
+    position: 'relative',
   },
   filterIconButton: {
     flexDirection: 'row',
@@ -21,12 +39,13 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 2,
     elevation: 2,
+    minWidth: 120,
   },
   filterText: {
-    flex: 1,
     fontSize: 16,
     color: '#333',
     fontWeight: '500',
+    marginRight: 8,
   },
   dropdownArrow: {
     fontSize: 12,
@@ -36,7 +55,7 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     top: 50,
     left: 0,
-    right: 0,
+    minWidth: 150,
     backgroundColor: '#fff',
     borderRadius: 8,
     borderWidth: 1,

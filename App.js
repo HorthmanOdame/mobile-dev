@@ -8,8 +8,11 @@ import { globalStyles } from './src/styles/globalStyles';
 
 export default function App() {
   const [selectedRole, setSelectedRole] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredUsers = filterUsersByRole(userData, selectedRole);
+  const filteredUsers = filterUsersByRole(userData, selectedRole).filter(user =>
+    user.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   const handleFilterChange = (role) => {
     setSelectedRole(role);
@@ -17,6 +20,10 @@ export default function App() {
 
   const handleClearFilter = () => {
     setSelectedRole(null);
+  };
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
   };
 
   return (
@@ -29,6 +36,8 @@ export default function App() {
           selectedRole={selectedRole}
           onFilterChange={handleFilterChange}
           onClearFilter={handleClearFilter}
+          searchQuery={searchQuery}
+          onSearch={handleSearch}
         />
         <UserList users={filteredUsers} />
         <UserCount count={filteredUsers.length} />
